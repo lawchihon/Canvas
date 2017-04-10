@@ -8,7 +8,8 @@ The following **required** functionality is completed:
 
 - [X] Add and Configure View Elements
 - [X] Make the Tray Draggable
-- [ ] Tray Behavior
+- [X] Tray Behavior
+   -  [X] Spring Animation
 - [ ] Creating Faces
 - [ ] Panning Faces on the Canvas
 - [ ] The Tray Arrow
