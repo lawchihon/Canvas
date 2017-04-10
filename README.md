@@ -9,9 +9,11 @@ The following **required** functionality is completed:
 - [X] Add and Configure View Elements
 - [X] Make the Tray Draggable
 - [X] Tray Behavior
-   -  [X] Spring Animation
-- [ ] Creating Faces
-- [ ] Panning Faces on the Canvas
+   - [X] Spring Animation
+- [X] Creating Faces
+   - [X] When the new face is panned from the tray, scale it up a little
+   - [X] When the panning stops, scale it back down
+- [X] Panning Faces on the Canvas
 - [ ] The Tray Arrow
 
 The following **optional** features are implemented:

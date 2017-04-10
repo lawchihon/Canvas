@@ -99,6 +99,27 @@ class CanvasViewController: UIViewController {
         scale(imageView: imageView, value: 1)
     }
     
+    func didPanNewFace(sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+
+        if sender.state == .began {
+            // Get the face that we panned on.
+            newlyCreatedFace = sender.view as! UIImageView
+            // Offset by translation later
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+            // Scale of the face to be a little larger
+            scaleUp(imageView: newlyCreatedFace)
+        }
+        // In the changed state, pan the position of the newlyCreatedFace
+        else if sender.state == .changed {
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+        }
+        else if sender.state == .ended {
+            // Scale back to normal
+            scaleDown(imageView: newlyCreatedFace)            
+        }
+    }
+
     @IBAction func didPanFace(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
 
@@ -126,6 +147,12 @@ class CanvasViewController: UIViewController {
         else if sender.state == .ended {
             // Scale back to normal
             scaleDown(imageView: newlyCreatedFace)
+            
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanNewFace(sender:)))
+            
+            newlyCreatedFace.isUserInteractionEnabled = true
+            newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
+            
         }
     }
 }
