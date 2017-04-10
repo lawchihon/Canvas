@@ -7,8 +7,10 @@
 //
 
 import UIKit
+var trayOriginalCenter: CGPoint!
 
 class CanvasViewController: UIViewController {
+    @IBOutlet weak var trayView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,4 +34,9 @@ class CanvasViewController: UIViewController {
     }
     */
 
+    @IBAction func didPanTray(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        trayOriginalCenter = trayView.center
+        trayView.center = CGPoint(x: trayOriginalCenter.x, y: trayOriginalCenter.y + translation.y)
+    }
 }

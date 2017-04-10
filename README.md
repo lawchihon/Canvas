@@ -7,7 +7,7 @@ Canvas is an exercise to learn how to perform animations and gestures.
 The following **required** functionality is completed:
 
 - [X] Add and Configure View Elements
-- [ ] Make the Tray Draggable
+- [X] Make the Tray Draggable
 - [ ] Tray Behavior
 - [ ] Creating Faces
 - [ ] Panning Faces on the Canvas
