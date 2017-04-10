@@ -106,6 +106,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="arrowImageView" destination="vXl-J9-5Ks" id="YQi-KG-tQp"/>
                         <outlet property="trayView" destination="U1z-CZ-vM6" id="Izz-XN-Jnn"/>
                     </connections>
                 </viewController>

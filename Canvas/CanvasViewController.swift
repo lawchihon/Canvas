@@ -10,6 +10,7 @@ import UIKit
 
 class CanvasViewController: UIViewController {
     @IBOutlet weak var trayView: UIView!
+    @IBOutlet weak var arrowImageView: UIImageView!
 
     var trayOriginalCenter: CGPoint!
     var trayDownOffset: CGFloat!
@@ -70,8 +71,12 @@ class CanvasViewController: UIViewController {
         }
         // For the gesture end, check the y component of the velocity
         else if sender.state == .ended {
+            // Clearing Transforms with Identity
+            arrowImageView.transform = CGAffineTransform.identity
+
             // If the velocity.y is greater than 0, it's moving down.
             if velocity.y > 0 {
+                arrowImageView.transform = arrowImageView.transform.rotated(by: CGFloat(M_PI))
                 springAnimation(trayMove: self.trayDown)
             }
             else {
@@ -116,7 +121,7 @@ class CanvasViewController: UIViewController {
         }
         else if sender.state == .ended {
             // Scale back to normal
-            scaleDown(imageView: newlyCreatedFace)            
+            scaleDown(imageView: newlyCreatedFace)
         }
     }
 
